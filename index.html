@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover games, search by category, and explore your next adventure at GameZone.">
+    <title>GameZone | Gaming Universe</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="#home" class="brand">
+            <span class="brand-icon"><i class="fa-solid fa-gamepad"></i></span>
+            GAME<span class="brand-highlight">ZONE</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#games" class="nav-link">Games</a>
+            <a href="#about" class="nav-link">About</a>
+        </nav>
+
+        <a href="#games" class="nav-cta">Explore Now <i class="fa-solid fa-arrow-right"></i></a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <main>
+        <section class="hero section-container" id="home">
+            <div class="hero-content">
+                <div class="eyebrow"><span class="status-dot"></span> YOUR NEXT ADVENTURE STARTS HERE</div>
+
+                <h1>ENTER THE<br><span class="gradient-text">GAMEVERSE.</span></h1>
+
+                <p class="hero-description">
+                    Discover your next obsession. Explore epic adventures,
+                    test your skills, and find your favorite game in one
+                    ultimate gaming destination.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#games" class="btn btn-primary"><i class="fa-solid fa-play"></i> Explore Games</a>
+                    <a href="#about" class="btn btn-secondary">Discover More <i class="fa-solid fa-arrow-down"></i></a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat"><strong>06<span>+</span></strong><small>Featured Games</small></div>
+                    <div class="stat-divider"></div>
+                    <div class="stat"><strong>06</strong><small>Game Categories</small></div>
+                    <div class="stat-divider"></div>
+                    <div class="stat"><strong>100<span>%</span></strong><small>Gaming Vibes</small></div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-card">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1000&q=85" alt="Gaming setup with colorful lights">
+                    <div class="hero-image-overlay"></div>
+                    <div class="hero-floating-tag"><i class="fa-solid fa-bolt"></i> READY TO PLAY</div>
+
+                    <div class="hero-image-caption">
+                        <span class="caption-label">YOUR WORLD. YOUR RULES.</span>
+                        <h2>PLAY BEYOND LIMITS</h2>
+                        <p>Choose your next adventure.</p>
+                    </div>
+                </div>
+
+                <!-- <div class="floating-chip chip-one"><i class="fa-solid fa-gamepad"></i> GAME ON</div>
+                <div class="floating-chip chip-two"><span class="status-dot"></span> PLAYER READY</div> -->
+            </div>
+
+            <a href="#games" class="scroll-indicator"><span></span> SCROLL TO EXPLORE</a>
+        </section>
+
+        <section class="games-section section-container" id="games">
+            <div class="section-heading">
+                <div>
+                    <div class="eyebrow"><span class="heading-line"></span> THE GAME LIBRARY</div>
+                    <h2>FIND YOUR <span class="gradient-text">NEXT PLAY.</span></h2>
+                    <p class="section-description">Six worlds. Endless possibilities. What are you playing today?</p>
+                </div>
+
+                <div class="library-counter">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span id="gameCount">06 GAMES</span>
+                </div>
+            </div>
+
+            <div class="game-toolbar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" id="gameSearch" placeholder="Search games, genres, keywords..." aria-label="Search games" autocomplete="off">
+                    <kbd>SEARCH</kbd>
+                </div>
+
+                <button class="clear-search" id="clearSearch" type="button" hidden>
+                    Clear <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="search-status" id="searchStatus" aria-live="polite"></div>
+
+            <div class="games-grid" id="gamesGrid"></div>
+
+            <div class="no-results" id="noResults" hidden>
+                <div class="no-results-icon"><i class="fa-solid fa-ghost"></i></div>
+                <h3>NO GAMES FOUND</h3>
+                <p>We couldn't find a matching game. Try another name or category.</p>
+                <button class="btn btn-primary" id="resetSearch" type="button">
+                    <i class="fa-solid fa-rotate-left"></i> Show All Games
+                </button>
+            </div>
+            <section class="details-section" id="gameDetails" hidden aria-labelledby="detailsTitle">
+                <div class="details-topline">
+                    <div>
+                        <div class="eyebrow"><span class="heading-line"></span> GAME INTEL</div>
+                        <h2 id="detailsTitle">GAME DETAILS</h2>
+                    </div>
+
+                    <button class="icon-button" id="closeDetails" type="button" aria-label="Close game details">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="details-content">
+                    <div class="details-image-wrap">
+                        <img id="detailsImage" src="" alt="">
+                        <span class="details-image-label">FEATURED GAME</span>
+                    </div>
+
+                    <div class="details-info">
+                        <span class="category-pill" id="detailsCategory"></span>
+                        <h3 id="detailsGameName"></h3>
+                        <p id="detailsDescription"></p>
+
+                        <div class="details-meta">
+                            <div><i class="fa-solid fa-gamepad"></i><span>Game Mode</span><strong>Explore</strong></div>
+                            <div><i class="fa-solid fa-bolt"></i><span>Experience</span><strong>Arcade Fun</strong></div>
+                        </div>
+
+                        <button class="btn btn-primary details-play" id="detailsPlay" type="button">
+                            <i class="fa-solid fa-play"></i> Play This Game
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="about-section section-container" id="about">
+            <div class="about-card">
+                <div class="about-icon"><i class="fa-solid fa-gamepad"></i></div>
+
+                <div class="about-copy">
+                    <div class="eyebrow"><span class="heading-line"></span> ABOUT GAMEZONE</div>
+                    <h2>MADE FOR THE <span class="gradient-text">PLAYERS.</span></h2>
+                    <p>
+                       GameZone is a modern gaming discovery website designed for gaming enthusiasts to explore and discover
+                        exciting games in one place. It features a collection of games across multiple categories, including 
+                        Racing, Action, Puzzle, Adventure, Sports, and Survival. Users can easily search for their favorite 
+                        games using the search feature and view detailed information about each game. The website provides an
+                        interactive and user-friendly interface with a stylish dark theme, responsive design, and easy 
+                        navigation
+                    </p>
+                </div>
+
+                <a href="#home" class="about-top-link" aria-label="Back to top">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <a href="#home" class="brand footer-brand">
+                <span class="brand-icon"><i class="fa-solid fa-gamepad"></i></span>
+                GAME<span class="brand-highlight">ZONE</span>
+            </a>
+
+            <p>LEVEL UP YOUR FREE TIME. © <span id="currentYear"></span> GAMEZONE.</p>
+            <a href="#home" class="footer-top">BACK TO TOP <i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
